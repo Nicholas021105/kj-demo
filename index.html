@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kencana Jaya Group</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="asset/img/Untitled-1.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/top_sale_slider.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+  <!-- Header Navigation -->
+  <header class="bg-black py-2">
+    <nav class="flex justify-between items-center max-w-screen-xl mx-auto px-5 relative">
+      <div class="logo">
+        <img src="asset/img/Placeholder 1.png" alt="Logo" class="w-20 h-20 object-cover rounded-full" loading="lazy" />
+      </div>
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex gap-8">
+        <li>
+          <a href="index.html"
+            class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">Home</a>
+        </li>
+        <li>
+          <a href="about.html"
+            class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">About</a>
+        </li>
+        <li>
+          <a href="product.html"
+            class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">Product</a>
+        </li>
+        <li>
+          <a href="services.html"
+            class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">Services</a>
+        </li>
+      </ul>
+      <div class="hidden md:block">
+        <a href="contact_us.html"
+          class="inline-block cta-btn bg-[#FFCC00] text-white py-3 px-6 rounded-full text-[1rem] hover:bg-[#ffdb0d] hover:scale-110 transform transition-transform duration-300">Contact
+          Us</a>
+      </div>
+      <!-- Mobile Menu Toggle -->
+      <button id="mobile-menu-toggle" class="md:hidden text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </nav>
+  </header>
+  <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+  <div id="menu-drawer"
+    class="fixed top-0 right-0 w-3/4 h-full bg-[#4D4D4D] transform translate-x-full transition-transform duration-300 z-50">
+    <div class="flex justify-end p-4">
+      <button id="close-menu" class="text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+    <ul>
+      <li class="border-b border-white/10">
+        <a href="index.html" class="block p-4 text-white transition-colors duration-300 hover:bg-white/10">Home</a>
+      </li>
+      <li class="border-b border-white/10">
+        <a href="about.html" class="block p-4 text-white transition-colors duration-300 hover:bg-white/10">About</a>
+      </li>
+      <li class="border-b border-white/10">
+        <a href="product.html" class="block p-4 text-white transition-colors duration-300 hover:bg-white/10">Product</a>
+      </li>
+      <li class="border-b border-white/10">
+        <a href="services.html"
+          class="block p-4 text-white transition-colors duration-300 hover:bg-white/10">Services</a>
+      </li>
+    </ul>
+    <div class="p-4 absolute bottom-0 w-full">
+      <a href="contact_us.html"
+        class="block text-center bg-[#FFCC00] text-white py-3 rounded-full transition-colors duration-300 hover:bg-[#ffdb0d]">Contact
+        Us</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero bg-cover bg-center h-screen relative"
+    style="background-image: url('asset/img/Placeholder 2.png');">
+    <div class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+    <div
+      class="hero-content absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-white text-center px-5 py-20 z-10">
+      <h2 class="text-[2rem] md:text-[3rem] font-bold mb-4">
+        Kencana Jaya Group
+      </h2>
+      <p class="text-[0.875rem] md:text-[1rem] mb-6">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum
+        vestibulum.
+      </p>
+      <a href="#"
+        class="inline-block cta-btn bg-[#FFCC00] text-white py-3 px-6 rounded-full text-[1rem] hover:bg-[#ffdb0d] hover:scale-110 transform transition-transform duration-300">Learn
+        More</a>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="bg-black py-24 px-4">
+    <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="flex items-center gap-12 w-full md:w-auto">
+        <div class="w-full h-64 md:w-96 rounded-lg shadow-lg overflow-hidden">
+          <img src="asset/img/Placeholder 2.png" alt="About Us Image" class="w-full h-full object-cover" loading="lazy">
+        </div>
+      </div>
+      <div class="text-white text-center md:text-left">
+        <h2 class="text-[2rem] md:text-[3rem] font-bold mb-4">About Us</h2>
+        <p class="text-[0.875rem] md:text-[1rem] text-gray-300 mb-6 leading-relaxed">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum felis at volutpat
+          vehicula. Quisque sollicitudin malesuada dolor nec fermentum. Vivamus suscipit, purus et pulvinar
+          laoreet, sem est tempor tortor, et vulputate ex augue sed odio. Ut at eros nisi.
+        </p>
+        <a href="#"
+          class="inline-block cta-btn bg-[#FFCC00] text-white py-3 px-6 rounded-full text-[1rem] hover:bg-[#ffdb0d] hover:scale-110 transform transition-transform duration-300">Learn
+          More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slider Header Section -->
+  <div class="text-left pt-6 pb-6">
+    <h2 class="text-[2rem] md:text-[3rem] font-bold text-white mb-4 px-6">
+      Our Partners
+    </h2>
+    <h3 class="text-[1.5rem] md:text-[2rem] font-semibold text-white mb-4 px-6">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </h3>
+  </div>
+  <!-- Slider Section -->
+  <div class="relative bg-[#4D4D4D] h-[150px] mx-auto overflow-hidden w-full flex items-center mb-[100px]">
+    <!-- Left Overlay -->
+    <div class="absolute left-0 top-0 h-full w-[200px] z-10 bg-gradient-to-r from-[#4D4D4D] to-transparent"></div>
+    <!-- Right Overlay -->
+    <div class="absolute right-0 top-0 h-full w-[200px] z-10 bg-gradient-to-l from-[#4D4D4D] to-transparent"></div>
+    <!-- Slide Track -->
+    <div class="flex items-center w-[3500px] animate-[scroll_40s_linear_infinite]">
+      <!-- Slide Item -->
+      <div class="flex items-center justify-center h-auto w-[250px]">
+        <img src="asset/img/Placeholder 4.png" alt="" class="object-contain h-full w-full" loading="lazy" />
+      </div>
+      <div class="flex items-center justify-center h-auto w-[250px]">
+        <img src="asset/img/Placeholder 4.png" alt="" class="object-contain h-full w-full" loading="lazy" />
+      </div>
+      <div class="flex items-center justify-center h-auto w-[250px]">
+        <img src="asset/img/Placeholder 4.png" alt="" class="object-contain h-full w-full" loading="lazy" />
+      </div>
+      <div class="flex items-center justify-center h-auto w-[250px]">
+        <img src="asset/img/Placeholder 4.png" alt="" class="object-contain h-full w-full" loading="lazy" />
+      </div>
+      <div class="flex items-center justify-center h-auto w-[250px]">
+        <img src="asset/img/Placeholder 4.png" alt="" class="object-contain h-full w-full" loading="lazy" />
+      </div>
+      <div class="flex items-center justify-center h-auto w-[250px]">
+        <img src="asset/img/Placeholder 4.png" alt="" class="object-contain h-full w-full" loading="lazy" />
+      </div>
+      <div class="flex items-center justify-center h-auto w-[250px]">
+        <img src="asset/img/Placeholder 4.png" alt="" class="object-contain h-full w-full" loading="lazy" />
+      </div>
+      <div class="flex items-center justify-center h-auto w-[250px]">
+        <img src="asset/img/Placeholder 4.png" alt="" class="object-contain h-full w-full" loading="lazy" />
+      </div>
+      <div class="flex items-center justify-center h-auto w-[250px]">
+        <img src="asset/img/Placeholder 4.png" alt="" class="object-contain h-full w-full" loading="lazy" />
+      </div>
+      <div class="flex items-center justify-center h-auto w-[250px]">
+        <img src="asset/img/Placeholder 4.png" alt="" class="object-contain h-full w-full" loading="lazy" />
+      </div>
+      <div class="flex items-center justify-center h-auto w-[250px]">
+        <img src="asset/img/Placeholder 4.png" alt="" class="object-contain h-full w-full" loading="lazy" />
+      </div>
+      <div class="flex items-center justify-center h-auto w-[250px]">
+        <img src="asset/img/Placeholder 4.png" alt="" class="object-contain h-full w-full" loading="lazy" />
+      </div>
+      <div class="flex items-center justify-center h-auto w-[250px]">
+        <img src="asset/img/Placeholder 4.png" alt="" class="object-contain h-full w-full" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</body>
+
+<!-- Slide Show Section -->
+<div class="flex justify-center items-center h-90vh">
+  <div class="w-full max-w-4xl bg-white p-6 rounded-[40px] shadow-lg mb-[100px]">
+    <h2 class="text-[2rem] md:text-[3rem] font-bold text-left mb-6 text-[#FFCC00]">
+      Best Sale
+    </h2>
+    <div class="swiper centered-slide-carousel swiper-container relative">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="bg-white rounded-2xl h-96 flex justify-center items-center relative">
+            <img src="asset/img/Placeholder 5.png" alt="Slide 1" class="rounded-lg h-full object-cover"
+              loading="lazy" />
+            <div class="slide-name text-[0.875rem] md:text-[1rem] text-[#FFCC00]">Slide 1</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="bg-white rounded-2xl h-96 flex justify-center items-center relative">
+            <img src="asset/img/Placeholder 5.png" alt="Slide 2" class="rounded-lg h-full object-cover"
+              loading="lazy" />
+            <div class="slide-name text-[0.875rem] md:text-[1rem] text-[#FFCC00]">Slide 2</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="bg-white rounded-2xl h-96 flex justify-center items-center relative">
+            <img src="asset/img/Placeholder 5.png" alt="Slide 3" class="rounded-lg h-full object-cover"
+              loading="lazy" />
+            <div class="slide-name text-[0.875rem] md:text-[1rem] text-[#FFCC00]">Slide 3</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="bg-white rounded-2xl h-96 flex justify-center items-center relative">
+            <img src="asset/img/Placeholder 5.png" alt="Slide 4" class="rounded-lg h-full object-cover"
+              loading="lazy" />
+            <div class="slide-name text-[0.875rem] md:text-[1rem] text-[#FFCC00]">Slide 4</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="bg-white rounded-2xl h-96 flex justify-center items-center relative">
+            <img src="asset/img/Placeholder 5.png" alt="Slide 5" class="rounded-lg h-full object-cover"
+              loading="lazy" />
+            <div class="slide-name text-[0.875rem] md:text-[1rem] text-[#FFCC00]">Slide 5</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="bg-white rounded-2xl h-96 flex justify-center items-center relative">
+            <img src="asset/img/Placeholder 5.png" alt="Slide 6" class="rounded-lg h-full object-cover"
+              loading="lazy" />
+            <div class="slide-name text-[0.875rem] md:text-[1rem] text-[#FFCC00]">Slide 6</div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="bg-white rounded-2xl h-96 flex justify-center items-center relative">
+            <img src="asset/img/Placeholder 5.png" alt="Slide 7" class="rounded-lg h-full object-cover"
+              loading="lazy" />
+            <div class="slide-name text-[0.875rem] md:text-[1rem] text-[#FFCC00]">Slide 7</div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Why Choose Us? Section -->
+<section class="py-16">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-[2rem] md:text-[3rem] font-bold text-white mb-4">
+        Why Choose Us?
+      </h2>
+      <p class="text-[0.875rem] md:text-[1rem] text-white max-w-2xl mx-auto">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum
+        vestibulum.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 card-grid gap-8">
+      <div class="bg-white p-8 rounded-xl shadow-lg transition-transform transform hover:-translate-y-2">
+        <div class="text-5xl text-center mb-4">
+          <svg class="mx-auto" width="100px" height="100px" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC"
+              stroke-width="0.336"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"
+                fill="#FFCC00"></path>
+            </g>
+          </svg>
+        </div>
+        <h3 class="text-[1.5rem] md:text-[2rem] font-bold text-center mb-4">
+          Lorem ipsum dolor
+        </h3>
+        <p class="text-[0.875rem] md:text-[1rem] text-gray-600 text-center">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum
+          vestibulum.
+        </p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-lg transition-transform transform hover:-translate-y-2">
+        <div class="text-5xl text-center mb-4">
+          <svg class="mx-auto" width="100px" height="100px" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path opacity="0.4"
+                d="M19.2107 6.36001C18.1707 4.26001 16.1607 2.71001 13.8307 2.20001C11.3907 1.66001 8.8907 2.24001 6.9807 3.78001C5.0607 5.31001 3.9707 7.60001 3.9707 10.05C3.9707 12.64 5.5207 15.35 7.8607 16.92V17.75C7.8507 18.03 7.8407 18.46 8.1807 18.81C8.5307 19.17 9.0507 19.21 9.4607 19.21H14.5907C15.1307 19.21 15.5407 19.06 15.8207 18.78C16.2007 18.39 16.1907 17.89 16.1807 17.62V16.92C19.2807 14.83 21.2307 10.42 19.2107 6.36001Z"
+                fill="#FFCC00"></path>
+              <path
+                d="M15.2592 21.9999C15.1992 21.9999 15.1292 21.9899 15.0692 21.9699C13.0592 21.3999 10.9492 21.3999 8.93918 21.9699C8.56918 22.0699 8.17918 21.8599 8.07918 21.4899C7.96918 21.1199 8.18918 20.7299 8.55918 20.6299C10.8192 19.9899 13.1992 19.9899 15.4592 20.6299C15.8292 20.7399 16.0492 21.1199 15.9392 21.4899C15.8392 21.7999 15.5592 21.9999 15.2592 21.9999Z"
+                fill="#FFCC00"></path>
+              <path
+                d="M12.0004 13.8499C11.8704 13.8499 11.7404 13.8199 11.6304 13.7499C11.2704 13.5399 11.1504 13.0799 11.3504 12.7299L12.2004 11.2499H11.3604C10.8604 11.2499 10.4504 11.0299 10.2304 10.6599C10.0104 10.2799 10.0304 9.8199 10.2804 9.3799L11.3504 7.5199C11.5604 7.1599 12.0204 7.0399 12.3704 7.2399C12.7304 7.4499 12.8504 7.9099 12.6504 8.2599L11.8004 9.7499H12.6404C13.1404 9.7499 13.5504 9.9699 13.7704 10.3399C13.9904 10.7199 13.9704 11.1799 13.7204 11.6199L12.6504 13.4799C12.5104 13.7199 12.2604 13.8499 12.0004 13.8499Z"
+                fill="#FFCC00"></path>
+            </g>
+          </svg>
+        </div>
+        <h3 class="text-[1.5rem] md:text-[2rem] font-bold text-center mb-4">
+          Lorem ipsum dolor
+        </h3>
+        <p class="text-[0.875rem] md:text-[1rem] text-gray-600 text-center">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum
+          vestibulum.
+        </p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-lg transition-transform transform hover:-translate-y-2">
+        <div class="text-5xl text-center mb-4">
+          <svg class="mx-auto" width="100px" height="100px" viewBox="0 0 24 24" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path opacity="0.5"
+                d="M2 16C2 13.1716 2 11.7574 2.87868 10.8787C3.75736 10 5.17157 10 8 10H16C18.8284 10 20.2426 10 21.1213 10.8787C22 11.7574 22 13.1716 22 16C22 18.8284 22 20.2426 21.1213 21.1213C20.2426 22 18.8284 22 16 22H8C5.17157 22 3.75736 22 2.87868 21.1213C2 20.2426 2 18.8284 2 16Z"
+                fill="#FFCC00"></path>
+              <path
+                d="M12 18C13.1046 18 14 17.1046 14 16C14 14.8954 13.1046 14 12 14C10.8954 14 10 14.8954 10 16C10 17.1046 10.8954 18 12 18Z"
+                fill="#FFCC00"></path>
+            </g>
+          </svg>
+        </div>
+        <h3 class="text-[1.5rem] md:text-[2rem] font-bold text-center mb-4">
+          Lorem ipsum dolor
+        </h3>
+        <p class="text-[0.875rem] md:text-[1rem] text-gray-600 text-center">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum
+          vestibulum.
+        </p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-lg transition-transform transform hover:-translate-y-2">
+        <div class="text-5xl text-center mb-4">
+          <svg class="mx-auto" width="100px" height="100px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
+            fill="#FFCC00" class="bi bi-lightning-fill">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5z">
+              </path>
+            </g>
+          </svg>
+        </div>
+        <h3 class="text-[1.5rem] md:text-[2rem] font-bold text-center mb-4">
+          Lorem ipsum dolor
+        </h3>
+        <p class="text-[0.875rem] md:text-[1rem] text-gray-600 text-center">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum
+          vestibulum.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="cta-section text-center mt-12">
+    <h3 class="cta-title text-[1.5rem] md:text-[2rem] font-semibold text-white mb-6">
+      Ready to work with us?
+    </h3>
+    <a href="contact_us.html">
+      <button
+        class="inline-block cta-btn bg-[#FFCC00] text-white py-3 px-6 rounded-full text-[1rem] hover:bg-[#ffdb0d] hover:scale-110 transform transition-transform duration-300">
+        Contact Us
+      </button>
+    </a>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="bg-black text-white">
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+      <div class="flex justify-center md:justify-start">
+        <div class="w-48 h-48 sm:w-52 sm:h-52 lg:w-64 lg:h-64 flex items-center justify-center">
+          <img src="asset/img/Placeholder 1.png" alt="Company Logo"
+            class="w-full h-full bg-gray-500 rounded-full object-cover" loading="lazy">
+        </div>
+      </div>
+      <div class="space-y-4">
+        <h2 class="text-lg sm:text-xl font-semibold">About Us</h2>
+        <p class="text-sm sm:text-base leading-6 text-gray-300">
+          We are committed to delivering top-notch services and solutions tailored to meet the needs of our clients.
+          Our team of professionals ensures excellence and customer satisfaction through innovative strategies
+          and dedication.
+        </p>
+        <div class="mt-6 space-y-4">
+          <!-- Judul Contact Us -->
+          <h3 class="text-lg sm:text-xl font-semibold text-white">Contact Us</h3>
+          <!-- Email -->
+          <p class="text-sm sm:text-base text-gray-300">Email: contact@company.com</p>
+          <!-- Tombol CTA WhatsApp -->
+          <a href="https://wa.me/1234567890" target="_blank"
+            class="inline-flex items-center justify-center sm:w-auto bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+            <!-- Ikon WhatsApp -->
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M17.507 14.307l-.009.075c-2.199-1.096-2.429-1.242-2.713-.816-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.173-.3-.019-.463.13-.606.136-.135.3-.345.45-.517.147-.172.195-.3.293-.495.098-.195.049-.36-.025-.57-.075-.195-.657-1.58-.9-2.16-.24-.58-.487-.5-.657-.51-.168-.008-.363-.008-.558-.008a1.12 1.12 0 00-.79.33c-.273.293-1.04 1.02-1.04 2.49 0 1.47 1.065 2.88 1.215 3.09.15.195 2.096 3.2 5.077 4.49.709.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.57-.09 1.756-.72 2.006-1.41.255-.7.255-1.29.18-1.41-.075-.12-.27-.195-.57-.345z" />
+              <path
+                d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.627 0 .31 5.314.31 11.734c0 2.036.547 3.98 1.508 5.66L0 24l6.796-1.78c1.746.97 3.77 1.5 5.91 1.5 6.42 0 11.737-5.313 11.737-11.733 0-3.19-1.245-6.19-3.49-8.49zm-8.48 18.36c-1.87 0-3.665-.52-5.23-1.44l-.38-.23-3.97 1.03 1.06-3.83-.25-.39c-.97-1.56-1.49-3.39-1.49-5.31 0-5.45 4.43-9.89 9.89-9.89 2.64 0 5.12 1.03 6.99 2.89 1.86 1.86 2.89 4.35 2.89 6.99 0 5.46-4.43 9.89-9.89 9.89z" />
+            </svg>
+            <!-- Teks Tombol -->
+            <span class="text-sm sm:text-base text-gray-300">Chat via WhatsApp</span>
+          </a>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <h2 class="text-lg sm:text-xl font-semibold mb-4">Navigation</h2>
+        <nav>
+          <ul class="space-y-2">
+            <li>
+              <a href="index.html"
+                class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="about.html"
+                class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="product.html"
+                class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">
+                Product
+              </a>
+            </li>
+            <li>
+              <a href="services.html"
+                class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">
+                Services
+              </a>
+            </li>
+            <li>
+              <a href="contact_us.html"
+                class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div>
+          <p class="text-lg sm:text-xl font-semibold mb-4">Social Media:</p>
+          <div class="flex gap-4">
+            <a href="#" class="text-white hover:text-[#FFCC00] transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+              </svg>
+            </a>
+            <a href="#" class="text-white hover:text-[#FFCC00] transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+              </svg>
+            </a>
+            <a href="#" class="text-white hover:text-[#FFCC00] transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
+              </svg>
+            </a>
+            <a href="#" class="text-white hover:text-[#FFCC00] transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="border-gray-700 my-6 sm:my-8" />
+    <div class="text-center">
+      <p class="text-xs sm:text-sm text-gray-400">
+        &copy; 2025 Company Name. All Rights Reserved.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/scripts.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".centered-slide-carousel", {
+    centeredSlides: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    loop: true,
+    slideToClickedSlide: false,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      }
+    }
+  });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" x-data="app()">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kencana Jaya Group</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="asset/img/Untitled-1.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- Header Navigation -->
+  <header class="bg-black py-2">
+    <nav class="flex justify-between items-center max-w-screen-xl mx-auto px-5 relative">
+      <div class="logo">
+        <img src="asset/img/Placeholder 1.png" alt="Logo" class="w-20 h-20 object-cover rounded-full" loading="lazy" />
+      </div>
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex gap-8">
+        <li>
+          <a href="index.html"
+            class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">Home</a>
+        </li>
+        <li>
+          <a href="about.html"
+            class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">About</a>
+        </li>
+        <li>
+          <a href="product.html"
+            class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">Product</a>
+        </li>
+        <li>
+          <a href="services.html"
+            class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">Services</a>
+        </li>
+      </ul>
+      <div class="hidden md:block">
+        <a href="contact_us.html"
+          class="inline-block cta-btn bg-[#FFCC00] text-white py-3 px-6 rounded-full text-[1rem] hover:bg-[#ffdb0d] hover:scale-110 transform transition-transform duration-300">Contact
+          Us</a>
+      </div>
+      <!-- Mobile Menu Toggle -->
+      <button id="mobile-menu-toggle" class="md:hidden text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </nav>
+  </header>
+  <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+  <div id="menu-drawer"
+    class="fixed top-0 right-0 w-3/4 h-full bg-[#4D4D4D] transform translate-x-full transition-transform duration-300 z-50">
+    <div class="flex justify-end p-4">
+      <button id="close-menu" class="text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </div>
+    <ul>
+      <li class="border-b border-white/10">
+        <a href="index.html" class="block p-4 text-white transition-colors duration-300 hover:bg-white/10">Home</a>
+      </li>
+      <li class="border-b border-white/10">
+        <a href="about.html" class="block p-4 text-white transition-colors duration-300 hover:bg-white/10">About</a>
+      </li>
+      <li class="border-b border-white/10">
+        <a href="product.html" class="block p-4 text-white transition-colors duration-300 hover:bg-white/10">Product</a>
+      </li>
+      <li class="border-b border-white/10">
+        <a href="services.html"
+          class="block p-4 text-white transition-colors duration-300 hover:bg-white/10">Services</a>
+      </li>
+    </ul>
+    <div class="p-4 absolute bottom-0 w-full">
+      <a href="contact_us.html"
+        class="block text-center bg-[#FFCC00] text-white py-3 rounded-full transition-colors duration-300 hover:bg-[#ffdb0d]">Contact
+        Us</a>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 py-8">
+    <!-- Search and Filter -->
+    <div class="bg-white p-4 rounded-lg shadow-md mb-6 flex flex-col md:flex-row gap-4">
+      <input type="text" x-model="searchTerm" placeholder="Search Products..."
+        class="w-full px-4 py-2 border-2 border-gray-400 rounded-full focus:outline-none focus:border-[#FFCC00]">
+      <select x-model="selectedCategory"
+        class="px-4 py-2 bg-[#FFCC00] text-white rounded-full cursor-pointer focus:outline-none hover:bg-[#E6B800] focus:bg-[#E6B800]">
+        <option value="">All Categories</option>
+        <option>Electric Bicycle</option>
+        <option>Bicycle</option>
+        <option>Toy</option>
+      </select>
+    </div>
+
+    <!-- Product Grid -->
+    <template x-if="filteredProducts.length === 0">
+      <div class="h-96 flex flex-col items-center justify-center">
+        <h3 class="text-4xl font-bold text-white mb-4">Sorry</h3>
+        <p class="text-2xl text-white">The item you are looking for is not available.</p>
+      </div>
+    </template>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <template x-for="product in filteredProducts" :key="product.id">
+        <div @click="openModal(product)"
+          class="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-105 max-w-sm mx-auto w-full">
+          <div class="h-64 bg-gray-50 flex items-center justify-center overflow-hidden">
+            <img :src="product.image" :alt="product.name" class="w-full h-full object-cover" loading="lazy"
+              @error="product.image = 'https://placehold.co/600x400?text=Image+Not+Available'">
+          </div>
+          <div class="p-4 text-center">
+            <h3 class="font-bold text-lg text-gray-800 mb-2" x-text="product.name"></h3>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <!-- Modal -->
+    <div class="fixed inset-0 bg-black/50 flex items-center justify-center p-4" x-show="isModalOpen"
+      @click.away="closeModal" x-cloak>
+      <div
+        class="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto md:overflow-hidden flex flex-col md:flex-row relative">
+        <!-- Close button with perfect centering -->
+        <div class="absolute top-0 right-0 w-full flex justify-end p-4 z-10">
+          <button @click="closeModal"
+            class="text-gray-800 hover:text-gray-600 bg-white/80 rounded-full h-10 w-10 flex items-center justify-center leading-none shadow-md">
+            <span class="text-3xl" style="margin-top: -2px; line-height: 1;">&times;</span>
+          </button>
+        </div>
+
+        <!-- Images -->
+        <div class="md:w-1/2 p-4 flex flex-col">
+          <div class="h-96 bg-gray-50 rounded-xl overflow-hidden">
+            <img :src="activeImage" :alt="selectedProduct?.name" class="w-full h-full object-cover" loading="lazy">
+          </div>
+          <div class="flex gap-2 mt-4 overflow-x-auto">
+            <template x-for="(img, index) in selectedProduct?.images" :key="index">
+              <img :src="img" @click="activeImage = img" loading="lazy"
+                :class="activeImage === img ? 'border-gray-600' : 'border-transparent'"
+                class="w-16 h-16 cursor-pointer rounded-lg border-2 object-cover">
+            </template>
+          </div>
+        </div>
+
+        <!-- Details (tanpa deskripsi) -->
+        <div class="md:w-1/2 p-6 bg-gray-50 md:overflow-y-auto">
+          <template x-if="selectedProduct">
+            <div class="pt-8 md:pt-0 pr-14">
+              <h2 class="text-2xl font-bold text-gray-800 mb-4 pr-4" x-text="selectedProduct.name"></h2>
+              <div class="space-y-3">
+                <template x-if="selectedProduct.category">
+                  <p class="flex items-center gap-2">
+                    <strong class="text-[1.5rem]">Category:</strong>
+                    <span x-text="selectedProduct.category"></span>
+                  </p>
+                </template>
+
+                <!-- Atribut tambahan (akan tampil hanya jika tersedia) -->
+
+                <template x-if="selectedProduct.power">
+                  <p class="flex items-center gap-2">
+                    <svg width="45px" height="45px" viewBox="-2.4 -2.4 28.80 28.80" version="1.1"
+                      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff"
+                      stroke="#ffffff" transform="rotate(0)matrix(1, 0, 0, 1, 0, 0)">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0" transform="translate(0,0), scale(1)">
+                        <rect x="-2.4" y="-2.4" width="28.80" height="28.80" rx="14.4" fill="#FFCC00" strokewidth="0">
+                        </rect>
+                      </g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC"
+                        stroke-width="0.048"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <title>lightning_fill</title>
+                        <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <g id="Weather" transform="translate(-49.000000, -48.000000)">
+                            <g id="lightning_fill" transform="translate(49.000000, 48.000000)">
+                              <path
+                                d="M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z"
+                                id="MingCute" fill-rule="nonzero"></path>
+                              <path
+                                d="M8.08357,2.5998 C8.24569,2.23504 8.60741,2 9.00652,2 L16.9838,2 C17.7346,2 18.223,2.79011 17.8872,3.46169 L15.6181,8 L18.9759,8 C19.8757,8 20.3263,9.08789 19.6901,9.72418 L7.73708,21.6772 C6.98345,22.4308 5.72771,21.6546 6.06473,20.6436 L8.6126,13 L5.01541,13 C4.2845,13 3.79562,12.2477 4.09246,11.5798 L8.08357,2.5998 Z"
+                                id="路径" fill="#ffffff"></path>
+                            </g>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+                    <strong class="text-black">Power:</strong>
+                    <span x-text="selectedProduct.power"></span>
+                  </p>
+                </template>
+
+                <template x-if="selectedProduct.speed">
+                  <p class="flex items-center gap-2">
+                    <svg width="45px" height="45px" viewBox="-2.4 -2.4 28.80 28.80" fill="none"
+                      xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0">
+                        <rect x="-2.4" y="-2.4" width="28.80" height="28.80" rx="14.4" fill="#ffcc00" strokewidth="0">
+                        </rect>
+                      </g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path
+                          d="M6.34315 17.6569C5.22433 16.538 4.4624 15.1126 4.15372 13.5607C3.84504 12.0089 4.00346 10.4003 4.60896 8.93853C5.21446 7.47672 6.23984 6.22729 7.55544 5.34824C8.87103 4.46919 10.4177 4 12 4C13.5823 4 15.129 4.46919 16.4446 5.34824C17.7602 6.22729 18.7855 7.47672 19.391 8.93853C19.9965 10.4003 20.155 12.0089 19.8463 13.5607C19.5376 15.1126 18.7757 16.538 17.6569 17.6569"
+                          stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M12 12L16 10" stroke="#ffffff" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"></path>
+                      </g>
+                    </svg>
+                    <strong class="text-black">Speed:</strong>
+                    <span x-text="selectedProduct.speed"></span>
+                  </p>
+                </template>
+
+                <template x-if="selectedProduct.battery">
+                  <p class="flex items-center gap-2">
+                    <svg width="45px" height="45px" viewBox="-2.4 -2.4 28.80 28.80" fill="none"
+                      xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0">
+                        <rect x="-2.4" y="-2.4" width="28.80" height="28.80" rx="14.4" fill="#ffcc00" strokewidth="0">
+                        </rect>
+                      </g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path
+                          d="M7.5 10V14M11.5 10V14M15.5 10V14M21 13V11M6.2 18H16.8C17.9201 18 18.4802 18 18.908 17.782C19.2843 17.5903 19.5903 17.2843 19.782 16.908C20 16.4802 20 15.9201 20 14.8V9.2C20 8.0799 20 7.51984 19.782 7.09202C19.5903 6.71569 19.2843 6.40973 18.908 6.21799C18.4802 6 17.9201 6 16.8 6H6.2C5.0799 6 4.51984 6 4.09202 6.21799C3.71569 6.40973 3.40973 6.71569 3.21799 7.09202C3 7.51984 3 8.07989 3 9.2V14.8C3 15.9201 3 16.4802 3.21799 16.908C3.40973 17.2843 3.71569 17.5903 4.09202 17.782C4.51984 18 5.07989 18 6.2 18Z"
+                          stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </g>
+                    </svg>
+                    <strong class="text-black">Battery:</strong>
+                    <span x-text="selectedProduct.battery"></span>
+                  </p>
+                </template>
+
+                <template x-if="selectedProduct.range">
+                  <p class="flex items-center gap-2">
+                    <svg width="45px" height="45px" viewBox="-6.4 -6.4 76.80 76.80" xmlns="http://www.w3.org/2000/svg"
+                      stroke-width="3" stroke="#ffffff" fill="none">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0">
+                        <rect x="-6.4" y="-6.4" width="76.80" height="76.80" rx="38.4" fill="#ffcc00" strokewidth="0">
+                        </rect>
+                      </g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <path
+                          d="M17.94,54.81a.1.1,0,0,1-.14,0c-1-1.11-11.69-13.23-11.69-21.26,0-9.94,6.5-12.24,11.76-12.24,4.84,0,11.06,2.6,11.06,12.24C28.93,41.84,18.87,53.72,17.94,54.81Z">
+                        </path>
+                        <circle cx="17.52" cy="31.38" r="4.75"></circle>
+                        <path
+                          d="M49.58,34.77a.11.11,0,0,1-.15,0c-.87-1-9.19-10.45-9.19-16.74,0-7.84,5.12-9.65,9.27-9.65,3.81,0,8.71,2,8.71,9.65C58.22,24.52,50.4,33.81,49.58,34.77Z">
+                        </path>
+                        <circle cx="49.23" cy="17.32" r="3.75"></circle>
+                        <path d="M17.87,54.89a28.73,28.73,0,0,0,3.9.89"></path>
+                        <path
+                          d="M24.68,56.07c2.79.12,5.85-.28,7.9-2.08,5.8-5.09,2.89-11.25,6.75-14.71a16.72,16.72,0,0,1,4.93-3"
+                          stroke-dasharray="7.8 2.92"></path>
+                        <path d="M45.63,35.8a23,23,0,0,1,3.88-.95"></path>
+                      </g>
+                    </svg>
+                    <strong class="text-black">Range:</strong>
+                    <span x-text="selectedProduct.range"></span>
+                  </p>
+                </template>
+
+                <template x-if="selectedProduct.brake">
+                  <p class="flex items-center gap-2">
+                    <svg width="45px" height="45px" viewBox="-4.8 -4.8 57.60 57.60" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0">
+                        <rect x="-4.8" y="-4.8" width="57.60" height="57.60" rx="28.8" fill="#ffcc00" strokewidth="0">
+                        </rect>
+                      </g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <rect width="48" height="48" fill="white" fill-opacity="0.01"></rect>
+                        <circle cx="24" cy="24" r="16" stroke="#ffffff" stroke-width="4" stroke-linecap="round"
+                          stroke-linejoin="round"></circle>
+                        <circle cx="24" cy="24" r="4" fill="#ffffff" stroke="#ffffff" stroke-width="4"
+                          stroke-linecap="round" stroke-linejoin="round"></circle>
+                        <path
+                          d="M24 4C26.6264 4 29.2272 4.51732 31.6537 5.52241C34.0802 6.5275 36.285 8.00069 38.1421 9.85787C39.9993 11.715 41.4725 13.9198 42.4776 16.3463C43.4827 18.7728 44 21.3736 44 24L36.0064 24C36.0064 22.4233 35.6959 20.862 35.0925 19.4053C34.4891 17.9487 33.6047 16.6251 32.4898 15.5102C31.3749 14.3953 30.0513 13.5109 28.5947 12.9075C27.138 12.3041 25.5767 11.9936 24 11.9936V4Z"
+                          fill="#ffffff" stroke="#ffffff" stroke-width="4" stroke-linecap="round"
+                          stroke-linejoin="round"></path>
+                      </g>
+                    </svg>
+                    <strong class="text-black">Brake:</strong>
+                    <span x-text="selectedProduct.brake"></span>
+                  </p>
+                </template>
+
+                <template x-if="selectedProduct.tire">
+                  <p class="flex items-center gap-2">
+                    <svg height="45px" width="45px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-51.2 -51.2 614.40 614.40"
+                      xml:space="preserve" fill="#ffffff" stroke="#ffffff">
+                      <g id="SVGRepo_bgCarrier" stroke-width="0">
+                        <rect x="-51.2" y="-51.2" width="614.40" height="614.40" rx="307.2" fill="#ffcc00"
+                          strokewidth="0"></rect>
+                      </g>
+                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                      <g id="SVGRepo_iconCarrier">
+                        <style type="text/css">
+                          .st0 {
+                            fill: #ffffff;
+                          }
+                        </style>
+                        <g>
+                          <path class="st0"
+                            d="M256.004,0C114.613,0,0.001,114.613,0.001,256.004C0.001,397.387,114.613,512,256.004,512 c141.383,0,255.996-114.613,255.996-255.996C511.999,114.613,397.387,0,256.004,0z M256.004,419.18 c-90.128,0-163.185-73.048-163.185-163.176S165.876,92.82,256.004,92.82c90.12,0,163.176,73.057,163.176,163.185 S346.124,419.18,256.004,419.18z">
+                          </path>
+                          <path class="st0"
+                            d="M256.004,271.78c8.718,0,15.776-7.058,15.776-15.776c0-8.718-7.058-15.784-15.776-15.784 c-8.725,0-15.784,7.066-15.784,15.784C240.219,264.722,247.279,271.78,256.004,271.78z">
+                          </path>
+                          <path class="st0"
+                            d="M150.727,196.65c1.108,2.954,3.495,5.239,6.5,6.212l56.239,18.289c5.239,1.684,10.977,0.787,15.429-2.446 c4.444-3.25,7.092-8.421,7.092-13.923v-59.1c0-3.148-1.446-6.136-3.927-8.082c-2.471-1.972-5.704-2.683-8.768-1.972 c0,0,0.838-0.634-4.85,1.152c-26.541,8.37-49.283,25.34-64.898,47.666c-3.216,4.587-1.98,3.275-1.98,3.275 C149.948,190.404,149.644,193.688,150.727,196.65z">
+                          </path>
+                          <path class="st0"
+                            d="M212.147,270.265c-1.701-5.248-5.807-9.361-11.045-11.045l-56.215-18.264 c-2.996-0.973-6.271-0.516-8.895,1.218c-2.624,1.752-4.308,4.604-4.579,7.752c0,0-0.338-0.998-0.398,4.96 c-0.254,27.828,8.87,54.683,25.273,76.451c3.368,4.469,2.488,2.886,2.488,2.886c2.073,2.378,5.103,3.682,8.235,3.554 c3.156-0.127,6.076-1.684,7.921-4.24l34.768-47.861C212.933,281.234,213.839,275.487,212.147,270.265z">
+                          </path>
+                          <path class="st0"
+                            d="M269.927,309.206c-3.25-4.443-8.422-7.084-13.923-7.084c-5.509,0-10.681,2.641-13.906,7.084l-34.75,47.81 c-1.845,2.547-2.438,5.814-1.575,8.861c0.838,3.038,3.03,5.51,5.95,6.738c0,0-1.066,0.025,4.596,1.921 c26.389,8.844,54.75,8.454,80.505-0.424c5.289-1.819,3.52-1.473,3.52-1.473c2.912-1.218,5.095-3.706,5.933-6.736 c0.846-3.047,0.245-6.297-1.6-8.845L269.927,309.206z">
+                          </path>
+                          <path class="st0"
+                            d="M367.155,240.939l-56.248,18.281c-5.23,1.684-9.352,5.797-11.037,11.045 c-1.709,5.222-0.804,10.968,2.446,15.403l34.726,47.819c1.862,2.564,4.782,4.096,7.938,4.249c3.149,0.135,6.178-1.194,8.235-3.58 c0,0-0.304,1.007,3.241-3.775c16.564-22.368,24.984-49.478,24.502-76.705c-0.094-5.586-0.33-3.792-0.33-3.792 c-0.271-3.148-1.946-6-4.578-7.735C373.426,240.423,370.16,239.957,367.155,240.939z">
+                          </path>
+                          <path class="st0"
+                            d="M283.112,218.706c4.461,3.225,10.182,4.13,15.421,2.446l56.198-18.289c3.005-0.966,5.392-3.259,6.5-6.212 c1.101-2.962,0.779-6.255-0.863-8.954c0,0,0.872,0.592-2.59-4.249c-16.148-22.674-39.321-39.042-65.372-47.006 c-5.358-1.625-3.724-0.863-3.724-0.863c-3.072-0.711-6.296,0.016-8.751,1.98c-2.48,1.938-3.919,4.926-3.919,8.066v59.152 C276.012,210.284,278.661,215.456,283.112,218.706z">
+                          </path>
+                        </g>
+                      </g>
+                    </svg>
+                    <strong class="text-black">Tire:</strong>
+                    <span x-text="selectedProduct.tire"></span>
+                  </p>
+                </template>
+
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="bg-black text-white">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div class="flex justify-center md:justify-start">
+          <div class="w-48 h-48 sm:w-52 sm:h-52 lg:w-64 lg:h-64 flex items-center justify-center">
+            <img src="asset/img/Placeholder 1.png" alt="Company Logo"
+              class="w-full h-full bg-gray-500 rounded-full object-cover" loading="lazy">
+          </div>
+        </div>
+        <div class="space-y-4">
+          <h2 class="text-lg sm:text-xl font-semibold">About Us</h2>
+          <p class="text-sm sm:text-base leading-6 text-gray-300">
+            We are committed to delivering top-notch services and solutions tailored to meet the needs of our clients.
+            Our team of professionals ensures excellence and customer satisfaction through innovative strategies
+            and dedication.
+          </p>
+          <div class="mt-6 space-y-4">
+            <!-- Judul Contact Us -->
+            <h3 class="text-lg sm:text-xl font-semibold text-white">Contact Us</h3>
+            <!-- Email -->
+            <p class="text-sm sm:text-base text-gray-300">Email: contact@company.com</p>
+            <!-- Tombol CTA WhatsApp -->
+            <a href="https://wa.me/1234567890" target="_blank"
+              class="inline-flex items-center justify-center sm:w-auto bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+              <!-- Ikon WhatsApp -->
+              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M17.507 14.307l-.009.075c-2.199-1.096-2.429-1.242-2.713-.816-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.173-.3-.019-.463.13-.606.136-.135.3-.345.45-.517.147-.172.195-.3.293-.495.098-.195.049-.36-.025-.57-.075-.195-.657-1.58-.9-2.16-.24-.58-.487-.5-.657-.51-.168-.008-.363-.008-.558-.008a1.12 1.12 0 00-.79.33c-.273.293-1.04 1.02-1.04 2.49 0 1.47 1.065 2.88 1.215 3.09.15.195 2.096 3.2 5.077 4.49.709.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.57-.09 1.756-.72 2.006-1.41.255-.7.255-1.29.18-1.41-.075-.12-.27-.195-.57-.345z" />
+                <path
+                  d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.627 0 .31 5.314.31 11.734c0 2.036.547 3.98 1.508 5.66L0 24l6.796-1.78c1.746.97 3.77 1.5 5.91 1.5 6.42 0 11.737-5.313 11.737-11.733 0-3.19-1.245-6.19-3.49-8.49zm-8.48 18.36c-1.87 0-3.665-.52-5.23-1.44l-.38-.23-3.97 1.03 1.06-3.83-.25-.39c-.97-1.56-1.49-3.39-1.49-5.31 0-5.45 4.43-9.89 9.89-9.89 2.64 0 5.12 1.03 6.99 2.89 1.86 1.86 2.89 4.35 2.89 6.99 0 5.46-4.43 9.89-9.89 9.89z" />
+              </svg>
+              <!-- Teks Tombol -->
+              <span class="text-sm sm:text-base text-gray-300">Chat via WhatsApp</span>
+            </a>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <h2 class="text-lg sm:text-xl font-semibold mb-4">Navigation</h2>
+          <nav>
+            <ul class="space-y-2">
+              <li>
+                <a href="index.html"
+                  class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="about.html"
+                  class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="product.html"
+                  class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">
+                  Product
+                </a>
+              </li>
+              <li>
+                <a href="services.html"
+                  class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">
+                  Services
+                </a>
+              </li>
+              <li>
+                <a href="contact_us.html"
+                  class="relative font-bold pb-1 text-white text-sm uppercase transition-colors duration-300 hover:text-[#FFCC00] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#FFCC00] after:transition-all after:duration-300 hover:after:w-full">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div>
+            <p class="text-lg sm:text-xl font-semibold mb-4">Social Media:</p>
+            <div class="flex gap-4">
+              <a href="#" class="text-white hover:text-[#FFCC00] transition-colors">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                </svg>
+              </a>
+              <a href="#" class="text-white hover:text-[#FFCC00] transition-colors">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                </svg>
+              </a>
+              <a href="#" class="text-white hover:text-[#FFCC00] transition-colors">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
+                </svg>
+              </a>
+              <a href="#" class="text-white hover:text-[#FFCC00] transition-colors">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="border-gray-700 my-6 sm:my-8" />
+      <div class="text-center">
+        <p class="text-xs sm:text-sm text-gray-400">
+          &copy; 2025 Company Name. All Rights Reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('app', () => ({
+        searchTerm: '',
+        selectedCategory: '',
+        isModalOpen: false,
+        selectedProduct: null,
+        activeImage: '',
+
+        products: [
+          {
+            id: 'EBIKE001',
+            name: 'Electric Bicycle Pro',
+            category: 'Electric Bicycle',
+            description: '',
+            image: 'asset/img/Untitled-3.png',
+            images: [
+              'asset/img/Untitled-3.png',
+              'https://placehold.co/600x400?text=Electric+Bicycle+2'
+            ],
+            power: '250W',
+            speed: '25 km/h',
+            battery: '36V 10Ah',
+            range: '50 km',
+            brake: 'Disc Brake',
+            tire: '26 inch'
+          },
+          {
+            id: 'BIKE001',
+            name: 'Classic Bicycle',
+            category: 'Bicycle',
+            description: '',
+            image: 'https://placehold.co/600x400?text=Bicycle',
+            images: [
+              'https://placehold.co/600x400?text=Bicycle+1',
+              'https://placehold.co/600x400?text=Bicycle+2'
+            ],
+            tire: '27 inch'
+          },
+          {
+            id: 'TOY001',
+            name: 'Kids\' Toy Car',
+            category: 'Toy',
+            description: '',
+            image: 'https://placehold.co/600x400?text=Toy',
+            images: [
+              'https://placehold.co/600x400?text=Toy+1',
+              'https://placehold.co/600x400?text=Toy+2'
+            ]
+            // Tidak memiliki atribut tambahan
+          }
+        ],
+
+        get filteredProducts() {
+          return this.products.filter(p => {
+            const matchesSearch = p.name.toLowerCase().includes(this.searchTerm.toLowerCase());
+            const matchesCategory = !this.selectedCategory || p.category === this.selectedCategory;
+            return matchesSearch && matchesCategory;
+          });
+        },
+
+        openModal(product) {
+          this.selectedProduct = product;
+          this.activeImage = product.images[0];
+          this.isModalOpen = true;
+        },
+
+        closeModal() {
+          this.isModalOpen = false;
+          this.selectedProduct = null;
+          this.activeImage = '';
+        }
+      }));
+    });
+  </script>
+  <script src="js/scripts.js"></script>
+
+</body>
+
+</html>
